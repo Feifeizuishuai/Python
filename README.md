@@ -1,2 +1,2 @@
 # Python
-# just exercising
+# Machine Learning and Data Mining
