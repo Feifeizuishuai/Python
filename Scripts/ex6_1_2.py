@@ -1,5 +1,5 @@
 # exercise 6.1.2
-
+#%% -----------------------------Data Preprocessing-----------------------------
 from matplotlib.pyplot import figure, plot, xlabel, ylabel, legend, show, boxplot
 from scipy.io import loadmat
 from sklearn import model_selection, tree
@@ -14,12 +14,14 @@ classNames = [name[0][0] for name in mat_data['classNames']]
 N, M = X.shape
 C = len(classNames)
 
+
+#%%---------------------------Decision Tree-------------------------------------
 # Tree complexity parameter - constraint on maximum depth
 tc = np.arange(2, 21, 1)
 
 # K-fold crossvalidation
 K = 10
-CV = model_selection.KFold(n_splits=K,shuffle=True)
+CV = model_selection.KFold(n_splits=K,random_state=0,shuffle=True)
 
 # Initialize variable
 Error_train = np.empty((len(tc),K))
@@ -40,8 +42,8 @@ for train_index, test_index in CV.split(X):
         y_est_test = dtc.predict(X_test)
         y_est_train = dtc.predict(X_train)
         # Evaluate misclassification rate over train/test data (in this CV fold)
-        misclass_rate_test = sum(np.abs(y_est_test - y_test)) / float(len(y_est_test))
-        misclass_rate_train = sum(np.abs(y_est_train - y_train)) / float(len(y_est_train))
+        misclass_rate_test = np.sum(y_est_test != y_test) / float(len(y_est_test))
+        misclass_rate_train = np.sum(y_est_train != y_train) / float(len(y_est_train))
         Error_test[i,k], Error_train[i,k] = misclass_rate_test, misclass_rate_train
     k+=1
 

@@ -9,12 +9,12 @@ from scipy.linalg import svd
 Y = X - np.ones((N,1))*X.mean(axis=0)
 
 # PCA by computing SVD of Y
-U,S,V = svd(Y,full_matrices=False)#S: Singular Value Matrix
+U,S,V = svd(Y,full_matrices=False)
 
 # Compute variance explained by principal components
 rho = (S*S) / (S*S).sum() 
 
-threshold = 0.90
+threshold = 0.9
 
 # Plot variance explained
 plt.figure()
@@ -25,7 +25,7 @@ plt.title('Variance explained by principal components');
 plt.xlabel('Principal component');
 plt.ylabel('Variance explained');
 plt.legend(['Individual','Cumulative','Threshold'])
-plt.grid()      
+plt.grid()
 plt.show()
 
 print('Ran Exercise 2.1.3')

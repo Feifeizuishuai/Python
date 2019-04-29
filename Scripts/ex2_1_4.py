@@ -9,11 +9,13 @@ from scipy.linalg import svd
 Y = X - np.ones((N,1))*X.mean(0)
 
 # PCA by computing SVD of Y
-U,S,V = svd(Y,full_matrices=True)
-V = V.T
+U,S,Vh = svd(Y,full_matrices=False)
+# scipy.linalg.svd returns "Vh", which is the Hermitian (transpose)
+# of the vector V. So, for us to obtain the correct V, we transpose:
+V = Vh.T    
+
 # Project the centered data onto principal component space
 Z = Y @ V
-
 
 # Indices of the principal components to be plotted
 i = 0

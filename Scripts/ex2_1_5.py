@@ -2,12 +2,12 @@
 
 # (requires data structures from ex. 2.2.1)
 from ex2_1_1 import *
-import matplotlib.pyplot as plt
+
 from scipy.linalg import svd
 
 Y = X - np.ones((N,1))*X.mean(0)
-U,S,V = svd(Y,full_matrices=False)
-V=V.T
+U,S,Vh = svd(Y,full_matrices=False)
+V=Vh.T
 N,M = X.shape
 
 # We saw in 2.1.3 that the first 3 components explaiend more than 90

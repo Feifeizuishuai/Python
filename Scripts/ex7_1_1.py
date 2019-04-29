@@ -1,6 +1,6 @@
 # exercise 7.1.1
 
-from matplotlib.pyplot import (figure, hold, plot, title, xlabel, ylabel, 
+from matplotlib.pyplot import (figure, plot, title, xlabel, ylabel, 
                                colorbar, imshow, xticks, yticks, show)
 from scipy.io import loadmat
 from sklearn.neighbors import KNeighborsClassifier, DistanceMetric

@@ -19,7 +19,7 @@ x = np.array([6.9, 1.09, .06, 2.1, .0061, 12, 31, .99, 3.5, .44, 12]).reshape(1,
 x_class = model.predict_proba(x)[0,0]
 
 # Evaluate classifier's misclassification rate over entire training data
-misclass_rate = sum(np.abs(y_est - y)) / float(len(y_est))
+misclass_rate = np.sum(y_est != y) / float(len(y_est))
 
 # Display classification results
 print('\nProbability of given sample being a white wine: {0:.4f}'.format(x_class))

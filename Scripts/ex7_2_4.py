@@ -3,10 +3,8 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn import model_selection
 from sklearn.preprocessing import OneHotEncoder
 
-np.random.seed(2450)
-
-# requires data from exercise 4.1.1
 from ex7_2_3 import *
+np.random.seed(2450)
 y = y.squeeze()
 
 # Naive Bayes classifier parameters

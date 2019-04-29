@@ -1,5 +1,5 @@
 # exercise 6.1.1
-
+#%% -----------------------------Data Preprocessing-----------------------------
 from matplotlib.pylab import figure, plot, xlabel, ylabel, legend, show
 from scipy.io import loadmat
 from sklearn import model_selection, tree
@@ -14,12 +14,14 @@ classNames = [name[0][0] for name in mat_data['classNames']]
 N, M = X.shape
 C = len(classNames)
 
+
+#%%---------------------------Decision Tree-------------------------------------
 # Tree complexity parameter - constraint on maximum depth
 tc = np.arange(2, 21, 1)
 
 # Simple holdout-set crossvalidation
-test_proportion = 0.5
-X_train, X_test, y_train, y_test = model_selection.train_test_split(X,y,test_size=test_proportion)
+test_proportion = 0.61
+X_train, X_test, y_train, y_test = model_selection.train_test_split(X,y,test_size=test_proportion, random_state=0)
 
 # Initialize variables
 Error_train = np.empty((len(tc),1))
@@ -31,17 +33,17 @@ for i, t in enumerate(tc):
     dtc = dtc.fit(X_train,y_train)
 
     # Evaluate classifier's misclassification rate over train/test data
-    y_est_test = dtc.predict(X_test)
-    y_est_train = dtc.predict(X_train)
-    misclass_rate_test = sum(np.abs(y_est_test - y_test)) / float(len(y_est_test))
-    misclass_rate_train = sum(np.abs(y_est_train - y_train)) / float(len(y_est_train))
+    y_est_test = np.asarray(dtc.predict(X_test),dtype=int)
+    y_est_train = np.asarray(dtc.predict(X_train), dtype=int)
+    misclass_rate_test = sum(y_est_test != y_test) / float(len(y_est_test))
+    misclass_rate_train = sum(y_est_train != y_train) / float(len(y_est_train))
     Error_test[i], Error_train[i] = misclass_rate_test, misclass_rate_train
     
 f = figure()
-plot(tc, Error_train)
-plot(tc, Error_test)
+plot(tc, Error_train*100)
+plot(tc, Error_test*100)
 xlabel('Model complexity (max tree depth)')
-ylabel('Error (misclassification rate)')
+ylabel('Error (%)')
 legend(['Error_train','Error_test'])
     
 show()    

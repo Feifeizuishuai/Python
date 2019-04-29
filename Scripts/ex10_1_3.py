@@ -38,7 +38,6 @@ title('Cluster validity')
 plot(np.arange(K)+1, Rand)
 plot(np.arange(K)+1, Jaccard)
 plot(np.arange(K)+1, NMI)
-ylim(-2,1.1)
 legend(['Rand', 'Jaccard', 'NMI'], loc=4)
 show()
 

@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-heart = pd.read_excel('../heartdisease/NewHeart.xlsx')
+heart = pd.read_excel('C:/Users/A_FEI/Documents/GitHub/ML-DM/HeartDesease/NewHeart.xlsx')
 
 '''
 different kind of pictures for each attribute
@@ -153,7 +153,12 @@ sns.heatmap(heart.corr(), annot=True, linewidths=.8,cmap='YlGnBu', ax=ax)
 plt.show()
 
 
-
+sns.countplot(heart.target)
+plt.title('Count of people')
+plt.xlabel('Have heart disease (1 = have; 0 = no)')
+plt.legend(["Haven't Disease"], ["Have Disease"])
+plt.ylabel('Count')
+plt.show()
 
 
 

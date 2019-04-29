@@ -26,11 +26,6 @@ plot(X,y,'o')
 xlabel('X'); ylabel('y')
 title('Illustration of a linear relation with noise')
 
-figure()
-plot(X,y-eps,'.')
-xlabel('X'); ylabel('y')
-title('Illustration of a linear relation without noise')
-
 show()
 
 print('Ran Exercise 5.2.1')

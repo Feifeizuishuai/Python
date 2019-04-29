@@ -1,4 +1,4 @@
-# exercise 8.3.1 Fit neural network classifiers using softmax output weighting
+# exercise 8.3.2 Fit multinomial regression
 from matplotlib.pyplot import figure, show, title
 from scipy.io import loadmat
 from toolbox_02450 import dbplotf, train_neural_net, visualize_decision_boundary

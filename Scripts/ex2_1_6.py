@@ -45,8 +45,8 @@ nrows=3
 ncols=2
 for k in range(2):
     # Obtain the PCA solution by calculate the SVD of either Y1 or Y2
-    U,S,V = svd(Ys[k],full_matrices=False)
-    V=V.T # For the direction of V to fit the convention in the course we transpose
+    U,S,Vh = svd(Ys[k],full_matrices=False)
+    V=Vh.T # For the direction of V to fit the convention in the course we transpose
     # For visualization purposes, we flip the directionality of the
     # principal directions such that the directions match for Y1 and Y2.
     if k==1: V = -V; U = -U; 

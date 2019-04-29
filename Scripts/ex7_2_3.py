@@ -1,5 +1,4 @@
 # exercise 7.2.3
-
 import numpy as np
 
 # Load list of names from files
