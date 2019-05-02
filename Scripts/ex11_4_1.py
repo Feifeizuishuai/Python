@@ -8,12 +8,12 @@ from sklearn.neighbors import NearestNeighbors
 
 # load data from Matlab data file
 matdata = loadmat('../Data/digits.mat')
-X = np.matrix(matdata['X'])
+X1 = np.matrix(matdata['X'])
 y = np.matrix(matdata['y'])
-N, M = np.shape(X)
+N, M = np.shape(X1)
 
 # Restrict the data to images of "2"
-X = X[y.A.ravel()==2,:]
+X = X1[y.A.ravel()==2,:]
 N, M = np.shape(X)
 
 

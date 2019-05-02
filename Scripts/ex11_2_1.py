@@ -1,7 +1,10 @@
 # exercise 11_2_1
+# Generate random data objects subject to c_sizes
+
 import numpy as np
 from matplotlib.pyplot import figure, hist, show
 
+from sklearn.neighbors import NearestNeighbors
 # Number of data objects
 N = 1000
 
@@ -30,3 +33,12 @@ hist(X,x)
 show()
 
 print('Ran Exercise 11.2.1')
+
+K=200
+knn = NearestNeighbors(n_neighbors=K).fit(X)
+D, i = knn.kneighbors(np.matrix(x).T)
+# Compute the density
+#D, i = knclassifier.kneighbors(np.matrix(xe).T)
+knn_density = 1./(D.sum(axis=1)/K)
+figure()
+plot(x, knn_density)

@@ -15,7 +15,7 @@ for c_id, c_size in enumerate(c_sizes):
 
 
 # Number of neighbors
-K = 200
+K = 500
 
 # x-values to evaluate the KNN
 xe = np.linspace(-10, 10, 100)
@@ -35,19 +35,18 @@ knn_avg_rel_density = knn_density/(knn_densityX[i[:,1:]].sum(axis=1)/K)
 
 
 # Plot KNN density
-figure(figsize=(6,7))
-subplot(2,1,1)
+figure(figsize=(12,7))
+subplot(2,2,1)
 hist(X,x)
 title('Data histogram')
-subplot(2,1,2)
+subplot(2,2,3)
 plot(xe, knn_density)
 title('KNN density')
 # Plot KNN average relative density
-figure(figsize=(6,7))
-subplot(2,1,1)
+subplot(2,2,2)
 hist(X,x)
 title('Data histogram')
-subplot(2,1,2)
+subplot(2,2,4)
 plot(xe, knn_avg_rel_density)
 title('KNN average relative density')
 
