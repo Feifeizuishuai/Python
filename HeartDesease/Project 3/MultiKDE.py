@@ -53,12 +53,12 @@ xlabel = logP
 title('Optimal estimated width')
 subplot(122)
 bar(range(20),density[:20])
-title('Density estimate')
+title('Density estimate: Outlier score')
 
     
 # %%
 # K-nearest neigbor density
-K = 5
+K = 4
 knn = NearestNeighbors(n_neighbors=K).fit(X)
 knn_D, knn_i = knn.kneighbors(X)
 knn_density = 1./(knn_D.sum(axis=1)/K)
