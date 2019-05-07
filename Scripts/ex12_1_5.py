@@ -12,3 +12,4 @@ Xbin, attributeNamesBin = binarize2(X, attributeNames)
 print("X, i.e. the wine dataset, has now been transformed into:")
 print(Xbin)
 print(attributeNamesBin)
+
